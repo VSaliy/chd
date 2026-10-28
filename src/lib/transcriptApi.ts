@@ -31,3 +31,8 @@ export function driveItemTranscriptUrls(origin: string, sitePath: string, driveI
     `${base}/media/transcripts`,
   ];
 }
+
+export function driveItemFromUrl(url: string): { driveId: string; itemId: string } | null {
+  const m = /\/drives\/([^/?#]+)\/items\/([^/?#]+)/i.exec(url);
+  return m ? { driveId: decodeURIComponent(m[1] as string), itemId: decodeURIComponent(m[2] as string) } : null;
+}

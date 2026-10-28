@@ -233,3 +233,19 @@ describe("transcode", () => {
     expect(parseDecryptionKey("zz")).toBeNull();
   });
 });
+
+import { isAllowedUrl, sanitizeSubfolder } from "../../src/lib/hosts";
+describe("hosts", () => {
+  it("allows only tenant hosts over https", () => {
+    expect(isAllowedUrl("https://contoso-my.sharepoint.com/x")).toBe(true);
+    expect(isAllowedUrl("https://contoso.sharepoint.com.mcas.ms/x")).toBe(true);
+    expect(isAllowedUrl("https://teams.microsoft.com/x")).toBe(true);
+    expect(isAllowedUrl("https://evil.com/sharepoint.com")).toBe(false);
+    expect(isAllowedUrl("https://sharepoint.com.evil.com/")).toBe(false);
+    expect(isAllowedUrl("http://a.sharepoint.com/")).toBe(false);
+  });
+  it("sanitises subfolders", () => {
+    expect(sanitizeSubfolder("../a/<b>/c.")).toBe("a/b/c");
+    expect(sanitizeSubfolder("")).toBe("");
+  });
+});

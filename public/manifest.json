@@ -3,7 +3,7 @@
   "name": "SP Video Grabber",
   "version": "0.1.0",
   "description": "Download SharePoint, Stream and Teams videos and transcripts you can already play. Runs entirely in the browser.",
-  "minimum_chrome_version": "110",
+  "minimum_chrome_version": "111",
   "permissions": ["storage", "downloads", "offscreen", "contextMenus", "scripting"],
   "host_permissions": [
     "https://*.sharepoint.com/*",

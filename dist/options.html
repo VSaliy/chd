@@ -1,0 +1,40 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>SP Video Grabber - Options</title><link rel="stylesheet" href="common.css">
+<style>body{max-width:760px;margin:0 auto;padding:16px}label{display:flex;flex-direction:column;gap:2px;margin:6px 0}</style></head>
+<body>
+<h1>SP Video Grabber</h1>
+<div id="welcome" class="card" hidden>
+  <strong>Responsible use</strong>
+  <p>Only download content you are allowed to keep. This extension only saves videos and transcripts that your signed-in account can already play. Respect your organisation's policies and the rights of the people recorded.</p>
+  <button id="ack" class="p">I understand</button>
+</div>
+<h2>Download</h2>
+<div class="card">
+<label>Default mode<select id="mode"><option value="av">Video + audio (.mp4)</option><option value="video">Video only (.mp4)</option><option value="audio">Audio only (.m4a)</option></select></label>
+<label>Quality<select id="quality"><option value="best">Best</option><option value="1080">Up to 1080p</option><option value="720">Up to 720p</option></select></label>
+<label>Parallel segment downloads<select id="concurrency"><option>1</option><option>2</option><option>4</option><option>8</option><option>16</option></select></label>
+<label>Filename template <span class="mu">Tokens: {title} {date} {time} {site} {quality} {id}</span><input id="template"></label>
+<label>Subfolder under Downloads<input id="subfolder" placeholder="e.g. Meetings"></label>
+<div class="row"><button id="pick">Choose output folder…</button><button id="unpick">Use Downloads</button><span id="folderName" class="mu"></span></div>
+<label class="row"><input type="checkbox" id="preferDirect"> Prefer the original file when direct download is allowed</label>
+<label class="row"><input type="checkbox" id="retryOnFailure"> Retry failed items (re-add to end of queue, up to 3 times)</label>
+</div>
+<h2>Transcripts</h2>
+<div class="card">
+<label>Format<select id="transcriptFormat"><option value="vtt">WebVTT (.vtt)</option><option value="srt">SubRip (.srt)</option><option value="txt">Grouped text (.txt)</option><option value="json">Raw JSON (.json)</option></select></label>
+<label class="row"><input type="checkbox" id="transcriptTimestamps"> Timestamps in grouped text</label>
+<label>Suffix<input id="transcriptSuffix"></label>
+<label>Suffix for grouped text<input id="transcriptGroupedSuffix"></label>
+</div>
+<h2>Advanced</h2>
+<div class="card">
+<label class="row"><input type="checkbox" id="captureFallback"> Enable real-time capture fallback (records the playing video; takes as long as the video)</label>
+<label class="row"><input type="checkbox" id="debug"> Debug logging</label>
+<div class="row"><button id="showLog">View log</button><button id="exportLog">Export log</button><button id="clearLog">Clear log</button></div>
+<pre id="log" class="mu" style="max-height:200px;overflow:auto;white-space:pre-wrap"></pre>
+</div>
+<h2>Download history</h2>
+<div class="row"><button id="clearHistory">Clear history</button></div>
+<div id="history"></div>
+<script src="options.js"></script>
+</body></html>

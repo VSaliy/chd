@@ -22,10 +22,10 @@ export function transcodePart(url: string): string | null {
   return parseTranscodeUrl(url)?.url.searchParams.get("part") ?? null;
 }
 
-export function buildTranscodeUrl(sample: string, part: "initsegment" | "mediasegment" | "key", track: "video" | "audio", extra: Record<string, string> = {}): string {
+export function buildTranscodeUrl(sample: string, part: "index" | "initsegment" | "mediasegment" | "key", track: "video" | "audio" | null, extra: Record<string, string> = {}): string {
   const u = new URL(sample);
   u.searchParams.set("part", part);
-  u.searchParams.set("track", track);
+  if (track) u.searchParams.set("track", track);
   for (const [k, v] of Object.entries(extra)) u.searchParams.set(k, v);
   return u.toString();
 }
