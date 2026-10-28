@@ -1,0 +1,17 @@
+{
+  "ListSchema": {
+    ".videoManifestUrl": "{.mediaBaseUrl}/transform/videomanifest?provider=spo&inputFormat={.fileType}&cs={.callerStack}&docid={.spItemUrl}&{.driveAccessToken}",
+    ".mediaBaseUrl": "https://contoso-my.sharepoint.com/personal/user_contoso_com/_api/v2.1/drives/b!DRIVE/items/ITEM123",
+    ".callerStack": "SPO.Web",
+    ".driveAccessToken": "access_token=TOKEN123"
+  },
+  "ListData": {
+    "Row": [
+      {
+        "FileLeafRef": "Meeting Recording.mp4",
+        "File_x0020_Type": "mp4",
+        ".spItemUrl": "https://contoso-my.sharepoint.com/personal/user_contoso_com/_api/v2.1/drives/b!DRIVE/items/ITEM123?version=Published"
+      }
+    ]
+  }
+}
