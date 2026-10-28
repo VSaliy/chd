@@ -166,7 +166,7 @@ describe("folders", () => {
 describe("direct url", () => {
   it("rebuilds path", () => {
     expect(directUrlFromStreamPage("https://c-my.sharepoint.com/personal/u/_layouts/15/stream.aspx?id=%2Fpersonal%2Fu%2FDocuments%2FMy+Rec%23%201.mp4&referrer=x")).toBe(
-      "https://c-my.sharepoint.com/personal/u/Documents/My%20Rec%23%201.mp4?download=1".replace("/personal/u/Documents", "/personal/u/Documents"),
+      "https://c-my.sharepoint.com/personal/u/Documents/My%20Rec%23%201.mp4?download=1",
     );
     expect(directUrlFromStreamPage("https://a/stream.aspx")).toBeNull();
   });
