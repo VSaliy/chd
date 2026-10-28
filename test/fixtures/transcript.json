@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "type": "Transcript",
+  "entries": [
+    { "id": "1", "text": "Hello everyone.", "speakerDisplayName": "Alice Example", "startOffset": "00:00:01.2300000", "endOffset": "00:00:03.5000000" },
+    { "id": "2", "text": "Welcome to the <demo>.", "speakerDisplayName": "Alice Example", "startOffset": "00:00:03.5000000", "endOffset": "00:00:05.0000000" },
+    { "id": "3", "text": "Thanks, glad to be here.", "speakerDisplayName": "Bob Sample", "startOffset": "00:01:05.0000000", "endOffset": "00:01:08.2500000" },
+    { "id": "4", "text": "  ", "speakerDisplayName": "Bob Sample", "startOffset": "00:01:08.2500000", "endOffset": "00:01:09.0000000" }
+  ]
+}

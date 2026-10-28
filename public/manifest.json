@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "SP Video Grabber",
+  "version": "0.1.0",
+  "description": "Download SharePoint, Stream and Teams videos and transcripts you can already play. Runs entirely in the browser.",
+  "minimum_chrome_version": "110",
+  "permissions": ["storage", "downloads", "offscreen", "contextMenus", "scripting"],
+  "host_permissions": [
+    "https://*.sharepoint.com/*",
+    "https://*.sharepoint.com.mcas.ms/*",
+    "https://*.svc.ms/*",
+    "https://teams.microsoft.com/*",
+    "https://teams.cloud.microsoft/*",
+    "https://teams.microsoft.com.mcas.ms/*"
+  ],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_title": "SP Video Grabber", "default_popup": "popup.html" },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.sharepoint.com/*",
+        "https://*.sharepoint.com.mcas.ms/*",
+        "https://teams.microsoft.com/*",
+        "https://teams.cloud.microsoft/*",
+        "https://teams.microsoft.com.mcas.ms/*"
+      ],
+      "js": ["intercept.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "https://*.sharepoint.com/*",
+        "https://*.sharepoint.com.mcas.ms/*",
+        "https://teams.microsoft.com/*",
+        "https://teams.cloud.microsoft/*",
+        "https://teams.microsoft.com.mcas.ms/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  }
+}

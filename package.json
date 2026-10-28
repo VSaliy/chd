@@ -1,0 +1,22 @@
+{
+  "name": "sp-video-grabber",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Chrome/Edge MV3 extension for downloading SharePoint, Stream and Teams videos",
+  "scripts": {
+    "build": "node build.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "npm run build && node test/e2e/run.mjs"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chrome": "^0.3.7",
+    "@types/node": "^26.6.5",
+    "esbuild": "^0.28.2",
+    "playwright": "^1.64.1",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.5"
+  }
+}
